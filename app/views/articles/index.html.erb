@@ -1,22 +1,26 @@
-<h2>文章</h2>
+<div class="box">
+  <h2>文章</h2>
 
-<table class="table table-striped">
-  <tr>
-    <th>#</th>
-    <th>标题</th>
-    <th>内容</th>
-    <th>所属类别</th>
-  </tr>
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>标题</th>
+      <th>内容</th>
+      <th>所属类别</th>
+    </tr>
   
-  <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.id %></td>
-    <td><%= article.title %></td>
-    <td><%= truncate(article.body) %></td>
-    <td><%= article.category.name %></td>
-  </tr>
-  <% end %>
+    <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.id %></td>
+      <td><%= article.title %></td>
+      <td><%= truncate(article.body) %></td>
+      <td><%= article.category.name %></td>
+    </tr>
+    <% end %>
   
-  <%= will_paginate @articles %>
+    <%= will_paginate @articles %>
   
-</table>
+  </table>
+</div>
+
+<div class="box"><%= link_to '抓取文章', crawl_path, :class => 'btn btn-success' %></div>

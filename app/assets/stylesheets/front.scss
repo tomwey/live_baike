@@ -8,12 +8,15 @@ body {
 }
 
 .box {
+  margin:0;
+  padding:0;
   border: 1px solid rgb(240,240,240);
   border-radius: 8px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   background: rgb(247,247,247);
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 h2 {

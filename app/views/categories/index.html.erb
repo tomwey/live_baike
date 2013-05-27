@@ -1,24 +1,28 @@
-<h2>类别</h2>
+<div class="box">
+  <h2>类别</h2>
 
-<table class="table table-striped">
-  <tr>
-    <th>#</th>
-    <th>名称</th>
-    <th>文章数</th>
-    <th>父类别</th>
-    <th>颜色</th>
-  </tr>
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>名称</th>
+      <th>文章数</th>
+      <th>父类别</th>
+      <th>颜色</th>
+    </tr>
   
-  <% @categories.each do |category| %>
-  <tr>
-    <td><%= category.id %></td>
-    <td><%= category.name %></td>
-    <td><%= category.articles_count %></td>
-    <td><%= category.parent.name if category.parent %></td>
-    <td><%= category.try(:color) %></td>
-  </tr>
-  <% end %>
+    <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.id %></td>
+      <td><%= category.name %></td>
+      <td><%= category.articles_count %></td>
+      <td><%= category.parent.name if category.parent %></td>
+      <td><%= category.try(:color) %></td>
+    </tr>
+    <% end %>
   
-  <%= will_paginate @categories %>
+    <%= will_paginate @categories %>
   
-</table>
+  </table>
+</div>
+
+<div class="box"><%= link_to '抓取类别', crawl_path, :class => 'btn' %></div>

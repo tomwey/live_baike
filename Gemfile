@@ -9,6 +9,8 @@ gem 'sqlite3'
 
 gem 'acts_as_tree'
 
+gem 'nokogiri'
+
 # 分页
 gem 'will_paginate'
 
