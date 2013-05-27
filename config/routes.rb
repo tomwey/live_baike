@@ -1,7 +1,8 @@
 LiveBaike::Application.routes.draw do
+
+  root to:'home#index'
   
-  root to:'articles#index'
-  
+  resources :categories
   resources :articles
   
   # The priority is based upon order of creation:

@@ -9,6 +9,12 @@ gem 'sqlite3'
 
 gem 'acts_as_tree'
 
+# 分页
+gem 'will_paginate'
+
+gem "anjlab-bootstrap-rails", :git => "git://github.com/anjlab/bootstrap-rails.git", :require => "bootstrap-rails"
+gem 'bootstrap-will_paginate', '0.0.3'
+gem "bootstrap_helper", "1.4.1"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -23,6 +29,15 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development do
+  gem 'quiet_assets'
+  gem 'thin'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
