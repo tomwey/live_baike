@@ -5,8 +5,6 @@ LiveBaike::Application.routes.draw do
   resources :categories
   resources :articles
   
-  match '/crawl' => 'home#crawl', :via => :get, :as => :crawl
-  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
