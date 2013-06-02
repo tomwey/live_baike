@@ -1,6 +1,6 @@
 require "bundler/capistrano"
 
-server "198.199.109.61", :web, :app, :db, primary: true
+server "198.199.107.191", :web, :app, :db, primary: true
 
 set :application, "live_baike"
 set :user, "deployer"
