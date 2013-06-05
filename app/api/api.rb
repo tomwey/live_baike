@@ -1,6 +1,6 @@
+require 'grape'
 module LiveBaike
   class API < Grape::API
-    # error_format :json
     format :json
     prefix "api"
     version 'v1', using: :path
