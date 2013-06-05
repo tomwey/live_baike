@@ -1,13 +1,16 @@
 <div class="box">
-  <h2>类别</h2>
+  <div class="row-fluid">
+    <div class="span8"><h2>分类</h2></div>
+    <div class="span4"><%= link_to '新建分类', new_category_path, class: "btn btn-primary pull-right" %></div>
+  </div>
 
   <table class="table table-striped">
     <tr>
       <th>#</th>
       <th>名称</th>
       <th>文章数</th>
-      <th>父类别</th>
       <th>颜色</th>
+      <th>#</th>
     </tr>
   
     <% @categories.each do |category| %>
@@ -15,8 +18,9 @@
       <td><%= category.id %></td>
       <td><%= category.name %></td>
       <td><%= category.articles_count %></td>
-      <td><%= category.parent.name if category.parent %></td>
       <td><%= category.try(:color) %></td>
+      <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-mini" %> 
+      <%= link_to 'Delete', category_path(category), :method => :delete, confirm: "你确定要删除吗？", class: "btn btn-danger btn-mini" %></td>
     </tr>
     <% end %>
   

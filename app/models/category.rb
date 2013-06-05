@@ -7,4 +7,8 @@ class Category < ActiveRecord::Base
   
   validates_presence_of :name
   
+  
+  def self.all_categories
+    Category.all.collect { |category| [category.name, category.id] }
+  end
 end

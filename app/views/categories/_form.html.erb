@@ -1,0 +1,32 @@
+<%= form_for @category do |f| %>
+  <fieldset>
+    <legend></legend>
+    <%= render 'shared/error_messages', :target => @category %>
+    <div class="control-group">
+      <%= f.label :name %>
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :color %>
+      <div class="controls">
+        <%= f.text_field :color %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sort %>
+      <div class="controls">
+        <%= f.number_field :sort %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "提交", class: "btn btn-success" %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

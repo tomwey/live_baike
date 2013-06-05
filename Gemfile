@@ -13,6 +13,9 @@ gem 'acts_as_tree'
 
 gem 'nokogiri'
 
+gem 'grape'
+gem 'grape-entity'
+
 # 分页
 gem 'will_paginate'
 

@@ -1,0 +1,39 @@
+<%= form_for @article do |f| %>
+  <fieldset>
+    <legend></legend>
+    <%= render 'shared/error_messages', :target => @article %>
+    <div class="control-group">
+      <%= f.label :title %>
+      <div class="controls">
+        <%= f.text_field :title %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :body %>
+      <div class="controls">
+        <%= f.text_area :body, :class => "span6", :style => "height:200px;"%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :sort %>
+      <div class="controls">
+        <%= f.number_field :sort %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= f.label :category_id %>
+      <div class="controls">
+        <%= f.select :category_id, Category.all_categories %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "提交", class: "btn btn-success" %>
+      </div>
+    </div>
+  </fieldset>
+<% end %>

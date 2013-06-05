@@ -1,5 +1,8 @@
 <div class="box">
-  <h2>文章</h2>
+  <div class="row-fluid">
+    <div class="span8"><h2>文章</h2></div>
+    <div class="span4"><%= link_to '新建文章', new_article_path, class: "btn btn-primary pull-right" %></div>
+  </div>
 
   <table class="table table-striped">
     <tr>
@@ -7,6 +10,7 @@
       <th>标题</th>
       <th>内容</th>
       <th>所属类别</th>
+      <th>#</th>
     </tr>
   
     <% @articles.each do |article| %>
@@ -15,6 +19,8 @@
       <td><%= article.title %></td>
       <td><%= truncate(article.body) %></td>
       <td><%= article.category.name %></td>
+      <td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-mini" %> 
+      <%= link_to 'Delete', article_path(article), :method => :delete, confirm: "你确定要删除吗？", class: "btn btn-danger btn-mini" %></td>
     </tr>
     <% end %>
   
