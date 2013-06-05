@@ -5,7 +5,7 @@ LiveBaike::Application.routes.draw do
   resources :categories
   resources :articles
   
-  mount API => "/"
+  mount LiveBaike::API => "/"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
