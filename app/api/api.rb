@@ -1,4 +1,3 @@
-require "grape"
 module LiveBaike
   class API < Grape::API
     format :json
