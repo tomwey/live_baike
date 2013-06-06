@@ -14,10 +14,10 @@ gem 'acts_as_tree'
 gem 'nokogiri'
 
 # API
-# gem 'grape'
-# gem 'grape-entity'
+gem 'grape'
+gem 'grape-entity'
 
-gem 'grape', github: 'intridea/grape', branch: 'frontier'
+# gem 'grape', github: 'intridea/grape', branch: 'frontier'
 
 # 分页
 gem 'will_paginate'

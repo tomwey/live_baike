@@ -5,18 +5,6 @@ GIT
     anjlab-bootstrap-rails (2.3.1.2)
       railties (>= 3.0)
       sass (>= 3.2)
-      
-GIT
-  remote: git://github.com/intridea/grape.git
-  revision: d24bd2f758544244ac65f19c69b94f0ffc34e71b
-  branch: frontier
-  specs:
-    grape (0.1.5)
-      hashie (~> 1.2)
-      multi_json
-      multi_xml
-      rack
-      rack-mount
 
 GEM
   remote: http://ruby.taobao.org/
@@ -51,6 +39,7 @@ GEM
     acts_as_tree (1.3.0)
       activerecord (>= 3.0.0)
     arel (3.0.2)
+    backports (3.3.1)
     bootstrap-will_paginate (0.0.3)
       will_paginate
     bootstrap_helper (1.4.1)
@@ -71,10 +60,25 @@ GEM
       execjs
     coffee-script-source (1.6.2)
     daemons (1.1.9)
+    descendants_tracker (0.0.1)
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    grape (0.4.1)
+      activesupport
+      builder
+      hashie (>= 1.2.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus
+    grape-entity (0.3.0)
+      activesupport
+      multi_json (>= 1.3.2)
+    hashie (2.0.5)
     highline (1.6.19)
     hike (1.2.3)
     i18n (0.6.1)
@@ -89,6 +93,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.23)
     multi_json (1.7.6)
+    multi_xml (0.5.4)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -102,8 +107,12 @@ GEM
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
     rack (1.4.5)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
     rack-ssl (1.3.3)
       rack
     rack-test (0.6.2)
@@ -155,6 +164,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    virtus (0.5.5)
+      backports (~> 3.3)
+      descendants_tracker (~> 0.0.1)
     will_paginate (3.0.4)
 
 PLATFORMS
@@ -167,6 +179,8 @@ DEPENDENCIES
   bootstrap_helper (= 1.4.1)
   capistrano
   coffee-rails (~> 3.2.1)
+  grape
+  grape-entity
   jquery-rails
   nokogiri
   pg
