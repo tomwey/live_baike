@@ -3,6 +3,7 @@ LiveBaike::Application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :categories, :only => [:index, :create], :format => :json
+      resources :articles, :format => :json
     end
   end
   
