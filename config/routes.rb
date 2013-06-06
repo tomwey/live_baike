@@ -1,11 +1,16 @@
 LiveBaike::Application.routes.draw do
-  require 'api'
+  
+  namespace :api do
+    namespace :v1 do
+      resources :categories, :only => [:index, :create], :format => :json
+    end
+  end
+  
   root to:'home#index'
   
   resources :categories
   resources :articles
   
-  mount LiveBaike::API => "/"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
