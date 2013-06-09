@@ -1,10 +1,5 @@
 require "bundler/capistrano"
 
-set :bundle_flags, "--deployment --quiet --binstubs"
-set :default_environment, {
-  'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-}
-
 server "198.199.107.191", :web, :app, :db, primary: true
 
 set :application, "live_baike"
