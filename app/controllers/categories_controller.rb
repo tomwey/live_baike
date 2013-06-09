@@ -1,7 +1,7 @@
 # coding: utf-8
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.paginate :page => params[:page], :per_page => 30
+    @categories = Category.order('articles_count DESC').paginate :page => params[:page], :per_page => 30
   end
   
   def new

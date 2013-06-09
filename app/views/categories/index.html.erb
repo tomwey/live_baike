@@ -18,7 +18,7 @@
       <td><%= category.id %></td>
       <td><%= category.name %></td>
       <td><%= category.articles_count %></td>
-      <td><%= category.try(:color) %></td>
+      <td><div style="width:100px;height:30px;line-height:30px;text-align:center; border: 1px solid black; background:<%= category.try(:color) %>"><%= category.try(:color) %></div></td>
       <td><%= link_to 'Edit', edit_category_path(category), class: "btn btn-mini" %> 
       <%= link_to 'Delete', category_path(category), :method => :delete, confirm: "你确定要删除吗？", class: "btn btn-danger btn-mini" %></td>
     </tr>

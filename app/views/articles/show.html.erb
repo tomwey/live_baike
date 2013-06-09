@@ -1,0 +1,7 @@
+<div class="well">
+  <div class="text-center">
+    <h2><%= @article.title %></h2>
+    <em style="color:<%= @article.category.color %>"><%= @article.category.name %></em>
+  </div>
+  <%= simple_format(@article.body) %>
+</div>
