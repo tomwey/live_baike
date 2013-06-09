@@ -13,12 +13,40 @@ module Api
         # else
         #   render json: { code: 404, message: '没有数据!', data:[] }
         # end
-        @articles = Article.all
-        respond_with(@articles)
+        @articles = Article.select('id, title, created_at').order('created_at DESC').paginate :page => params[:page], :per_page => params[:per_page] || 30
+        if @articles.any?
+          render json: { code: 200, message: 'ok', data:@articles.as_json(only: [:id, :title, :created_at]) }
+        else
+          render json: { code: 404, message: "没有数据!", data: [] }
+        end
+      end
+      
+      def show
+        @article = Article.select('body').where(:id => params[:id])
+        if @article
+          render json: { code: 200, message: "ok", data: @article.as_json(only: :body) }
+        else
+          render json: { code: 404, message: "没有数据!", data:[] }
+        end
       end
       
       def create
         Article.create!(title:params[:title], body:params[:body], category_id:params[:category_id])
+      end
+      
+      def category
+        @category = Category.find(params[:id])
+        if @category
+          @articles = @category.articles.select('id, title, created_at').order('created_at DESC').paginate :page => params[:page], :per_page => params[:per_page] || 30
+          if @articles.any?
+            render json: { code: 200, message: 'ok', data:@articles.as_json(only: [:id, :title, :created_at]) }
+          else
+            render json: { code: 404, message: "没有数据!", data:[] }
+          end
+        else
+          render json: { code: 404, message: "没有此类别!", data:[] }
+        end
+        
       end
     end
   end

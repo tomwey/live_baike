@@ -1,13 +1,15 @@
 LiveBaike::Application.routes.draw do
+  require 'api'
   
   devise_for :users
 
-  namespace :api do
-    namespace :v1 do
-      resources :categories, :only => [:index, :create], :format => :json
-      resources :articles, :format => :json
-    end
-  end
+  # namespace :api do
+  #   namespace :v1 do
+  #     resources :categories, :only => [:index, :create], :format => :json
+  #     resources :articles, :only => [:index, :show], :format => :json
+  #     get 'articles/category/:id' => 'articles#category'
+  #   end
+  # end
   
   
   authenticated :user do
@@ -21,5 +23,6 @@ LiveBaike::Application.routes.draw do
   resources :categories
   resources :articles
   
+  mount LiveBaike::API => '/'
   
 end
