@@ -1,0 +1,33 @@
+<div class="well span9 offset1">
+  <h2>请登录</h2>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+    <fieldset>
+      <legend></legend>
+      <div class="control-group">
+        <%= f.label :email , "邮箱", class: "control-label" %>
+        <div class="controls">
+          <%= f.email_field :email, :autofocus => true %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :password,"密码", class: "control-label"%>
+        <div class="controls">
+          <%= f.password_field :password%>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <div class="controls">
+          <% if devise_mapping.rememberable? -%>
+            <label for="user_remember_me" class="checkbox">
+              <%= f.check_box :remember_me, :style => "width:auto;" %> 记住我
+            </label>
+          <% end -%>
+          <%= f.submit "登录", class: "btn btn-success", :disable_with => "正在登录" %>
+        </div>
+      </div>
+    </fieldset>
+  <% end %>
+</div>
+

@@ -13,6 +13,8 @@ gem 'acts_as_tree'
 
 gem 'nokogiri'
 
+gem 'devise'
+
 # API
 # gem 'grape'
 # gem 'grape-entity'
