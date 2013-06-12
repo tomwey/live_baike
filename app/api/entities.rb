@@ -15,6 +15,14 @@ module LiveBaike
     
     class ArticleDetail < Grape::Entity
       expose :body
+      expose(:image_url) do |model, opts|
+        if model.image?
+          model.image.url
+        else
+          ""
+        end
+      end
     end
+    
   end
 end

@@ -86,7 +86,7 @@ module LiveBaike
       get '/body' do
         authenticate!
         aid = params[:aid].to_i
-        @article = Article.select('body').where(:id => aid)
+        @article = Article.select('body, image').where(:id => aid)
         if @article.present?
           present @article, :with => APIEntities::ArticleDetail
           render_json(body())

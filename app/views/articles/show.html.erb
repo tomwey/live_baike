@@ -3,5 +3,10 @@
     <h2><%= @article.title %></h2>
     <em style="color:<%= @article.category.color %>"><%= @article.category.name %></em>
   </div>
+  <% if @article.image? %>
+  <div class="text-center">
+    <%= image_tag @article.image.url %>
+  </div>
+  <% end %>
   <%= simple_format(@article.body) %>
 </div>

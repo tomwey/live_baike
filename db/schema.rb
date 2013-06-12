@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609055621) do
+ActiveRecord::Schema.define(:version => 20130612143814) do
 
   create_table "api_keys", :force => true do |t|
     t.string   "access_token"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130609055621) do
     t.integer  "category_id"
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.string   "image"
   end
 
   add_index "articles", ["category_id"], :name => "index_articles_on_category_id"
@@ -43,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20130609055621) do
 
   add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
   add_index "categories", ["sort"], :name => "index_categories_on_sort"
+
+  create_table "photos", :force => true do |t|
+    t.string   "image"
+    t.integer  "article_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

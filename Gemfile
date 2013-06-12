@@ -15,6 +15,10 @@ gem 'nokogiri'
 
 gem 'devise'
 
+# 上传组件
+gem 'carrierwave', '~> 0.7.0'
+gem 'mini_magick', :git => 'git://github.com/fschwahn/mini_magick.git'
+
 # API
 gem 'grape'
 gem 'grape-entity'
