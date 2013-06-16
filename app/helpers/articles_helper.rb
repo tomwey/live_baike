@@ -1,7 +1,7 @@
 # coding: utf-8
 module ArticlesHelper
   def render_article_status(article)
-    if article.status == 0
+    if article.status.to_i == 0
       content_tag :span, '不可见', class: 'label label-info'
     else
       content_tag :span, "可见", class: 'label label-success'
@@ -10,7 +10,7 @@ module ArticlesHelper
   
   def render_article_open_btn(article)
     
-    if article.status == 0
+    if article.status.to_i == 0
       label = 'Open'
       path = open_article_path(article)
     else
