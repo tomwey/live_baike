@@ -9,7 +9,7 @@ module LiveBaike
     end
     
     class Article < Grape::Entity
-      expose :id, :title
+      expose :id, :title, :updated_at
       expose :access_time, { :as => 'time' }
       expose :category, :using => APIEntities::Category
     end
