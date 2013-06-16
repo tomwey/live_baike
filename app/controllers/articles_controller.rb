@@ -36,6 +36,21 @@ class ArticlesController < ApplicationController
     end
   end
   
+  def open
+    @article = Article.find(params[:id])
+    @article.status = 1
+    @article.access_time = Time.now.to_i
+    @article.save!
+    # render :text => 1
+  end
+  
+  def close
+    @article = Article.find(params[:id])
+    @article.status = 0
+    @article.save!
+    # render :text => 0
+  end
+  
   def destroy
     @article = Article.find(params[:id])
     @article.destroy

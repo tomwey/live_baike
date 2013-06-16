@@ -4,6 +4,11 @@ class CategoriesController < ApplicationController
     @categories = Category.order('articles_count DESC').paginate :page => params[:page], :per_page => 30
   end
   
+  def show
+    @category = Category.find(params[:id])
+    @articles = @category.articles.paginate :page => params[:page], :per_page => 30
+  end
+  
   def new
     @category = Category.new
   end

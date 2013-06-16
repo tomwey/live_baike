@@ -1,0 +1,12 @@
+<tr id="<%= dom_id article %>">
+  <td><%= article.id %></td>
+  <td><%= link_to article.title, article %></td>
+  <td><%= truncate(article.body) %></td>
+  <td><%= article.category.name %></td>
+  <td><%= render_article_status(article) %></td>
+  <td>
+      <%= render_article_open_btn(article) %>
+      <%= link_to 'Edit', edit_article_path(article), class: "btn btn-mini" %> 
+      <%= link_to 'Delete', article_path(article), :method => :delete, confirm: "你确定要删除吗？", class: "btn btn-danger btn-mini" %>
+  </td>
+</tr>

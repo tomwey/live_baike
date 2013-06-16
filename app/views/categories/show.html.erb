@@ -1,0 +1,20 @@
+<div class="well">
+  <h2><%= @category.name %>(<%= @category.articles_count %>)</h2>
+  
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>标题</th>
+      <th>内容</th>
+      <th>所属类别</th>
+      <th>文章状态</th>
+      <th>#</th>
+    </tr>
+  
+    <%= render :partial => 'articles/article', :collection => @articles %>
+  
+    <%= will_paginate @articles %>
+  
+  </table>
+  
+</div>

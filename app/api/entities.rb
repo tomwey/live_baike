@@ -9,7 +9,7 @@ module LiveBaike
     end
     
     class Article < Grape::Entity
-      expose :id, :title, :created_at
+      expose :id, :title, :access_time
       expose :category, :using => APIEntities::Category
     end
     

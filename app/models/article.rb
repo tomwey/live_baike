@@ -1,24 +1,28 @@
 class Article < ActiveRecord::Base
   attr_accessible :body, :sort, :title, :category_id, :image
   
+  attr_protected :status
+  
   belongs_to :category, :counter_cache => true, :inverse_of => :articles
   has_many :photos
   
   validates_presence_of :title, :body, :category_id
   
   default_scope order('created_at DESC')
+  scope :visible, where(:status => 1)
   
   mount_uploader :image, PhotoUploader
   
-  def self.latest_title_list(aid, mode)
+  def self.latest_title_list(time, mode)
     
-    if aid <= 0
-      order('created_at DESC').except(:body)
+    if time <= 0
+      visible.order('access_time DESC').except(:body)
     else
       if mode == 0
-        where('id < ?', aid).except(:body)
+        puts time.to_s
+        where('access_time < ? and status=1', time).order('access_time DESC').except(:body)
       else
-        where('id > ?', aid).except(:body)
+        where('access_time > ? and status=1', time).order('access_time DESC').except(:body)
       end
     end
     

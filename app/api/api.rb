@@ -38,16 +38,16 @@ module LiveBaike
           return render_error_json(404, '数据为空')
         end
         
-        aid = params[:aid].to_i
+        time = params[:time].to_i
         
         if params[:cid]
-          # 某个类别下面的查询
           @category = Category.find_by_id(params[:cid])
+          # 某个类别下面的查询
           return render_error_json(404, '数据为空') if @category.blank?
-          @articles = @category.articles.latest_title_list(aid, mode).includes(:category).limit(page_size)#.offset(0)
+          @articles = @category.articles.unscoped.latest_title_list(time, mode).includes(:category).limit(page_size)#.offset(0)
         else
           # 首页查询
-          @articles = Article.latest_title_list(aid, mode).includes(:category).limit(page_size)#.offset(0)
+          @articles = Article.unscoped.latest_title_list(time, mode).includes(:category).limit(page_size)#.offset(0)
         end
         
         # @category = Category.find_by_id(params[:cid])

@@ -21,7 +21,12 @@ LiveBaike::Application.routes.draw do
   end
   
   resources :categories
-  resources :articles
+  resources :articles do
+    member do
+      put :open
+      put :close
+    end
+  end
   
   mount LiveBaike::API => '/'
   
