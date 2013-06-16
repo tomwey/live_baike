@@ -23,12 +23,24 @@
       </div>
     </div>
     
+    <% if not @article.image? %>
     <div class="control-group">
       <%= f.label :image, "上传图片" %>
       <div class="controls">
         <%= f.file_field :image %>
       </div>
     </div>
+    <% else %>
+    <div class="control-group">
+      <div class="controls">
+        <%= image_tag @article.image.url %>
+        <label for='remove_image' class='checkbox'>
+          <%= f.check_box :remove_image %> 删除图片 
+        </label>
+      </div>
+      
+    </div>
+    <% end %>
     
     <div class="control-group">
       <%= f.label :category_id %>
