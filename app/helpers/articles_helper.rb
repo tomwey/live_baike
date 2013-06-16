@@ -13,11 +13,18 @@ module ArticlesHelper
     if article.status.to_i == 0
       label = 'Open'
       path = open_article_path(article)
+      flag = false
     else
       label = 'Close'
       path = close_article_path(article)
+      flag = true
     end
     
-    link_to label, path, :method => :put, class: 'btn btn-mini', :remote => true
+    if flag
+      link_to label, path, :method => :put, :confirm => '此操作会影响客户端数据的使用，请慎用！！！', class: 'btn btn-mini', :remote => true
+    else
+      link_to label, path, :method => :put, :confirm => '你确定要将此数据放开给用户吗？', class: 'btn btn-mini', :remote => true
+    end
+    
   end
 end
