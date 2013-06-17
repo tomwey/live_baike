@@ -44,10 +44,10 @@ module LiveBaike
           @category = Category.find_by_id(params[:cid])
           # 某个类别下面的查询
           return render_error_json(404, '数据为空') if @category.blank?
-          @articles = @category.articles.unscoped.latest_title_list(time, mode).includes(:category).limit(page_size)#.offset(0)
+          @articles = @category.articles.latest_title_list(time, mode).includes(:category).limit(page_size)
         else
           # 首页查询
-          @articles = Article.unscoped.latest_title_list(time, mode).includes(:category).limit(page_size)#.offset(0)
+          @articles = Article.latest_title_list(time, mode).includes(:category).limit(page_size)
         end
         
         # @category = Category.find_by_id(params[:cid])

@@ -8,21 +8,22 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title, :body, :category_id
   
-  default_scope order('created_at DESC')
+  # default_scope order('created_at DESC')
   scope :visible, where(:status => 1)
+  scope :without_body, except(:body)
+  scope :latest, order('access_time DESC')
   
   mount_uploader :image, PhotoUploader
   
   def self.latest_title_list(time, mode)
     
     if time <= 0
-      visible.order('access_time DESC').except(:body)
+      visible.latest.without_body
     else
       if mode == 0
-        puts time.to_s
-        where('access_time < ? and status=1', time).order('access_time DESC').except(:body)
+        where('access_time < ? and status=1', time).latest.without_body
       else
-        where('access_time > ? and status=1', time).order('access_time DESC').except(:body)
+        where('access_time > ? and status=1', time).latest.without_body
       end
     end
     
