@@ -1,6 +1,5 @@
-set :environment, 'development'
-set :output, "/Users/tomwey/Desktop/cron/file.log"
+set :output, "/var/log/crontab.log"
 
 every 2.minutes do 
-  rake "data:unlock"
+  rake "data:test"
 end
