@@ -15,6 +15,8 @@ gem 'nokogiri'
 
 gem 'devise'
 
+gem 'whenever', :require => false
+
 # 上传组件
 gem 'carrierwave', '~> 0.7.0'
 gem 'mini_magick', :git => 'git://github.com/fschwahn/mini_magick.git'
