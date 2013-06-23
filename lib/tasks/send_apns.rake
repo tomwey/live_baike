@@ -1,4 +1,5 @@
 # coding: utf-8
+require 'apns'
 namespace :apns do
   desc 'Sending to apns...'
   task :send => :environment do

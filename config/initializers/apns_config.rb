@@ -1,3 +1,4 @@
+require 'apns'
 APNS.host = 'gateway.push.apple.com'
 
 APNS.pem = "#{Rails.root}/config/production_cert.pem"
