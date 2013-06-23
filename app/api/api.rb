@@ -96,6 +96,15 @@ module LiveBaike
       end
     end
     
+    resource :device_infos do
+      params do
+        requires :device_token, type: String, desc: "Your device token"
+      end
+      post do
+        DeviceInfo.create!(:device_token => params[:device_token])
+      end
+    end
+    
     # get '/article_body' do
     #   authenticate!
     #   aid = params[:aid].to_i

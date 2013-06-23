@@ -13,6 +13,8 @@ gem 'acts_as_tree'
 
 gem 'nokogiri'
 
+gem 'apns'
+
 gem 'devise'
 
 gem 'whenever', :require => false
