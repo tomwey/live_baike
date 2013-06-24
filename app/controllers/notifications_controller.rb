@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
   def index
-    @notifications = Notification.includes(:device_infos).paginate :page => params[:page], :per_page => 30
+    @notifications = Notification.paginate :page => params[:page], :per_page => 30
   end
   
   def new
