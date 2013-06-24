@@ -17,7 +17,7 @@ gem 'apns'
 
 gem 'devise'
 
-gem 'whenever', :require => false
+# gem 'whenever', :require => false
 
 # 上传组件
 gem 'carrierwave', '~> 0.7.0'
@@ -67,7 +67,7 @@ gem 'jquery-rails', '2.2.1'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'rvm-capistrano'
+# gem 'rvm-capistrano'
 gem 'capistrano'
 
 # To use debugger
