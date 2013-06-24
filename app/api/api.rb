@@ -101,7 +101,12 @@ module LiveBaike
         requires :device_token, type: String, desc: "Your device token"
       end
       post do
-        DeviceInfo.create!(:device_token => params[:device_token])
+        @device_info = DeviceInfo.where(:device_token => params[:device_token]).first_or_create
+        if @device_info
+          body({ code: 201 })
+        else
+          body({ code: 400 })
+        end
       end
     end
     

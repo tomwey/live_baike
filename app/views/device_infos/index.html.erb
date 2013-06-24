@@ -1,0 +1,25 @@
+<div class="box">
+  
+  <h2>设备Token</h2>
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>Token</th>
+      <th>注册时间</th>
+      <th>#</th>
+    </tr>
+  
+    <% @device_infos.each do |device_info| %>
+    <tr>
+      <td><%= device_info.id %></td>
+      <td><%= device_info.device_token %></td>
+      <td><%= device_info.created_at %></td>
+      <td>
+      <%= link_to 'Delete', device_info_path(device_info), :method => :delete, confirm: "你确定要删除吗？", class: "btn btn-danger btn-mini" %></td>
+    </tr>
+    <% end %>
+  
+    <%= will_paginate @device_infos %>
+  
+  </table>
+</div>

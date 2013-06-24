@@ -1,7 +1,7 @@
 require 'apns'
-APNS.host = 'gateway.push.apple.com'
+APNS.host = 'gateway.sandbox.push.apple.com'
 
-APNS.pem = "#{Rails.root}/config/production_cert.pem"
+APNS.pem = "#{Rails.root}/config/cert.pem"
 
 APNS.pass = 'tomwey860818'
 

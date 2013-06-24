@@ -1,0 +1,26 @@
+<div class="box">
+  <div class="row-fluid">
+    <div class="span8"><h2>通知</h2></div>
+    <div class="span4"><%= link_to '新建通知', new_notification_path, class: "btn btn-primary pull-right" %></div>
+  </div>
+
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>通知内容</th>
+      <th>创建时间</th>
+    </tr>
+  
+    <% @notifications.each do |notification| %>
+    <tr>
+      <td><%= notification.id %></td>
+      <td width="60%"><%= notification.content %></td>
+      <td width="30%"><%= notification.created_at %></td>
+    </tr>
+    <% end %>
+  
+    <%= will_paginate @notifications %>
+  
+  </table>
+</div>
+

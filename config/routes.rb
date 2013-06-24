@@ -1,4 +1,8 @@
 LiveBaike::Application.routes.draw do
+  get "device_infos/index"
+
+  get "device_infos_controller/index"
+
   require 'api'
   
   devise_for :users
@@ -21,6 +25,8 @@ LiveBaike::Application.routes.draw do
   end
   
   resources :categories
+  resources :device_infos, only: [:index, :destroy]
+  resources :notifications, only: [:index, :new, :create]
   resources :articles do
     member do
       put :open
