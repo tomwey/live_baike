@@ -1,7 +1,7 @@
 # coding: utf-8
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:category).paginate :page => params[:page], :per_page => 20
+    @articles = Article.order('updated_at DESC').includes(:category).paginate :page => params[:page], :per_page => 20
   end
   
   def show
@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     
     if @article.update_attributes(params[:article])
-      redirect_to articles_path, notice: "Article was updated."
+      redirect_to @article, notice: "Article was updated."
     else
       render :edit
     end
