@@ -1,3 +1,4 @@
+# coding: utf-8
 module LiveBaike
   module APIEntities
     class Category < Grape::Entity
