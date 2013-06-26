@@ -2,7 +2,7 @@ namespace :data do
   desc 'Open article...'
   task :unlock => :environment do
     count = 30 + rand(21)
-    @articles = Article.where(:status => 0).order('RANDOM()').limit(2)
+    @articles = Article.where(:status => 2).order('RANDOM()').limit(2)
     @articles.each do |article|
       article.status = 1
       puts article.title + '-----------'

@@ -22,6 +22,17 @@ class ArticlesController < ApplicationController
     end
   end
   
+  def publish
+    category_id = params[:category_id].to_i
+    PublishArticles.random_publish(category_id, 5)
+    if category_id.zero?
+      redirect_to articles_url
+    else
+      @category = Category.find(category_id)
+      redirect_to @category
+    end
+  end
+  
   def edit
     @article = Article.find(params[:id])
   end

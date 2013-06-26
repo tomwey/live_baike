@@ -1,10 +1,18 @@
 # coding: utf-8
 module ArticlesHelper
   def render_article_status(article)
-    if article.status.to_i == 0
-      content_tag :span, '不可见', class: 'label label-info'
+    status = article.status.to_i
+    case status
+    when 0
+      content_tag :span, '待审核', class: 'label label-info'
+    when 1
+      content_tag :span, '已发布', class: 'label label-success'
+    when 2
+      content_tag :span, '已审核', class: 'label label-important'
+    when 3
+      content_tag :span, '未通过', class: 'label label-warning'
     else
-      content_tag :span, "可见", class: 'label label-success'
+      ""
     end
   end
   

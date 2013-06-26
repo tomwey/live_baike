@@ -1,7 +1,11 @@
+<div class="well well-small pull-right">
+  <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-primary' %>
+  <%= link_to 'Back', category_path(@article.category), :class => 'btn' %>
+</div>
 <div class="well">
   <div class="text-center">
     <h2><%= @article.title %></h2>
-    <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-primary pull-right' %>
+
     <em style="color:<%= @article.category.color %>"><%= @article.category.name %></em>
   </div>
   <% if @article.image? %>

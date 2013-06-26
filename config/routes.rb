@@ -32,6 +32,9 @@ LiveBaike::Application.routes.draw do
       put :open
       put :close
     end
+    collection do
+      get :publish
+    end
   end
   
   mount LiveBaike::API => '/'
