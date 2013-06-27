@@ -31,7 +31,7 @@ class Publish < ActiveRecord::Base
       article.publish
       sleep(1)
     end
-    puts 'Done...'
+    puts Time.now.to_s + ' Done...'
     
   end
   
