@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  published_at: 2013-06-27 00:13:35
+  articles_count: 1
+  type: 1
+  category_id: 1
+
+two:
+  published_at: 2013-06-27 00:13:35
+  articles_count: 1
+  type: 1
+  category_id: 1

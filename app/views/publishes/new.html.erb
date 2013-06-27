@@ -1,0 +1,37 @@
+<div class="well">
+  <div class="row-fluid">
+    <div class="span6 offset3">
+      <%= form_for @publish do |f| %>
+        <legend>手动发布文章</legend>
+        <div class="control-group">
+          <%= f.label :articles_count, '发布的文章数量' %>
+          <div class="controls">
+            <%= f.number_field :articles_count %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <%= f.label :category_id, '文章分类 (如果不指定，表示所有文章随机发布)' %>
+          <div class="controls">
+            <%= f.select :category_id, Category.all.map { |category| [category.name, category.id] }, :prompt => '--请选择类别--' %>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <%= f.label :publish_type, '发布方式' %>
+          <div class="controls">
+            <%= f.select :publish_type, Publish::TYPES %>
+          </div>
+        </div>
+    
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit '发布', class: 'btn btn-success', :disable_with => '正在发布...' %>
+          </div>
+        </div>
+    
+      <% end %>
+    </div>
+  </div>
+
+</div>

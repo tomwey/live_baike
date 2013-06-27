@@ -1,5 +1,6 @@
-set :output, "/var/log/crontab.log"
+set :output, File.join(Whenever.path, 'log', 'crontab.log')
+# set :environment, "development"
 
-every 2.minutes do 
-  rake "data:test"
+every 1.day, :at => '4:30 am' do 
+  runner "PublishArticles.publish"
 end

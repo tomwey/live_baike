@@ -12,7 +12,7 @@ class Article < ActiveRecord::Base
   STATES = [['待审核', 0], ['已审核', 2], ['未通过', 3], ['已发布', 1]]
   
   # default_scope order('created_at DESC')
-  scope :visible, where(:status => 1)
+  scope :published, where(:status => 1)
   scope :without_body, except(:body)
   scope :latest, order('access_time DESC')
   scope :approved, where(:status => 2)
@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
   def self.latest_title_list(time, mode)
     
     if time <= 0
-      visible.latest.without_body
+      published.latest.without_body
     else
       if mode == 0
         where('access_time < ? and status=1', time).latest.without_body

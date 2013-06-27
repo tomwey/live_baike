@@ -1,4 +1,10 @@
 LiveBaike::Application.routes.draw do
+  get "publishes/index"
+
+  get "publishes/new"
+
+  get "publishes/create"
+
   get "device_infos/index"
 
   get "device_infos_controller/index"
@@ -27,6 +33,10 @@ LiveBaike::Application.routes.draw do
   resources :categories
   resources :device_infos, only: [:index, :destroy]
   resources :notifications, only: [:index, :new, :create]
+  resources :publishes, only: [:index, :new, :create] 
+  
+  match 'publish/auto_send' => 'publishes#auto_send', via: :get, as: 'auto_send_publish'
+  
   resources :articles do
     member do
       put :open

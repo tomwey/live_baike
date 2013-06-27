@@ -1,0 +1,31 @@
+<div class="box">
+  <div class="row-fluid">
+    <div class="span8"><h2>发布列表</h2></div>
+    <div class="span4"><%= link_to '发布文章', new_publish_path, class: "btn btn-primary pull-right" %></div>
+  </div>
+
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>发布文章数</th>
+      <th>文章所属类别</th>
+      <th>发布方式</th>
+      <th>发布时间</th>
+      <th>#</th>
+    </tr>
+  
+    <% @publishes.each do |publish| %>
+      <tr>
+        <td><%= publish.id %></td>
+        <td><%= publish.articles_count %></td>
+        <td><%= render_publish_category(publish) %></td>
+        <td><%= render_publish_type(publish) %></td>
+        <td><%= render_publish_time(publish) %></td>
+      </tr>
+    <% end %>
+  
+    <%= will_paginate @publishes %>
+  
+  </table>
+</div>
+

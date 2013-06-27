@@ -17,7 +17,7 @@ gem 'apns'
 
 gem 'devise'
 
-# gem 'whenever', :require => false
+gem 'whenever', :require => false
 
 # 上传组件
 gem 'carrierwave', '~> 0.7.0'
