@@ -4,7 +4,7 @@ module PublishArticles
     
     @publish = Publish.where(:publish_type => 1).order('created_at DESC').first
     if @publish
-      puts Time.now.to_s + 'Starting...'
+      puts Time.now.to_s + ' starting...'
       @publish.publish
     end
     

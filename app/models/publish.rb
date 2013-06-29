@@ -22,16 +22,18 @@ class Publish < ActiveRecord::Base
       @articles = Article.approved.order('RANDOM()').limit(articles_count)
     end
     
-    self.articles_count = @articles.size
-    if not new_record?
-      self.save!
+    if @articles.size > 0
+      self.articles_count = @articles.size
+      if not new_record?
+        self.save!
+      end
     end
     
     @articles.each do |article|
       article.publish
       sleep(1)
     end
-    puts Time.now.to_s + ' Done...'
+    puts Time.now.to_s + " open #{@articles.size} articles"
     
   end
   
