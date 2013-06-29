@@ -39,7 +39,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   
-  task :copy_static_assets, roles: :app do
+  task :copy_static_assets, roles: :web do
     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
   end
