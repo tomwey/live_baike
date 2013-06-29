@@ -2,6 +2,8 @@
 class Publish < ActiveRecord::Base
   attr_accessible :articles_count, :category_id, :published_at, :publish_type
   
+  attr_protected :complete_articles
+  
   validates_presence_of :articles_count
   
   TYPES = [['手动', 0], ['自动', 1]]
@@ -23,7 +25,7 @@ class Publish < ActiveRecord::Base
     end
     
     if @articles.size > 0
-      self.articles_count = @articles.size
+      self.complete_articles = @articles.size
       if not new_record?
         self.save!
       end

@@ -9,6 +9,7 @@
       <th>#</th>
       <th>发布文章数</th>
       <th>文章所属类别</th>
+      <th>完成发布的文章数</th>
       <th>发布方式</th>
       <th>发布时间</th>
       <th>#</th>
@@ -19,6 +20,7 @@
         <td><%= publish.id %></td>
         <td><%= publish.articles_count %></td>
         <td><%= render_publish_category(publish) %></td>
+        <td><%= publish.complete_articles %></td>
         <td><%= render_publish_type(publish) %></td>
         <td><%= render_publish_time(publish) %></td>
       </tr>
