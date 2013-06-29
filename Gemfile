@@ -37,6 +37,7 @@ gem "bootstrap_helper", "1.4.1"
 group :development do
   gem 'quiet_assets'
   gem 'thin'
+  gem 'capistrano'
 end
 
 group :production do
@@ -68,7 +69,6 @@ gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'rvm-capistrano'
-gem 'capistrano'
 
 # To use debugger
 # gem 'debugger'

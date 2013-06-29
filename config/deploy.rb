@@ -56,15 +56,15 @@ namespace :deploy do
   # before "deploy", "deploy:check_revision"
 end
 
-namespace :remote_rake do
-  task :invoke do
-    run "cd #{deploy_to}/current; RAILS_ENV=production bundle exec rake db:migrate"
-  end
-end
-
-namespace :my_tasks do
-  task :copy_to_public do
-    run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
-    run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
-  end
-end
+# namespace :remote_rake do
+#   task :invoke do
+#     run "cd #{deploy_to}/current; RAILS_ENV=production bundle exec rake db:migrate"
+#   end
+# end
+# 
+# namespace :my_tasks do
+#   task :copy_to_public do
+#     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
+#     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
+#   end
+# end
