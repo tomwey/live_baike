@@ -17,6 +17,7 @@ ssh_options[:forward_agent] = true
 
 # 保留5个最新的版本
 after "deploy", "deploy:cleanup"
+after "deploy:cleanup", "deploy:copy_static_assets"
 
 namespace :deploy do
   %w[start stop restart].each do |command|
@@ -44,7 +45,6 @@ namespace :deploy do
     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
   end
-  after "deploy:restart", "deploy:copy_static_assets"
   # desc "Make sure local git is in sync with remote."
   # task :check_revision, roles: :web do
   #   unless `git rev-parse HEAD` == `git rev-parse origin/master` do
