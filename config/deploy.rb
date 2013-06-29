@@ -44,6 +44,7 @@ namespace :deploy do
     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
   end
+  after "deploy:restart", "deploy:copy_static_assets"
   # desc "Make sure local git is in sync with remote."
   # task :check_revision, roles: :web do
   #   unless `git rev-parse HEAD` == `git rev-parse origin/master` do
