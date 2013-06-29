@@ -38,15 +38,12 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
+  after "deploy:finalize_update", "deploy:symlink_config"
   
-  task :copy_static_assets, roles: :web do
+  task :copy_static_assets, roles: :app do
     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
   end
-  
-  after "deploy:finalize_update", "deploy:symlink_config"
-  after "deploy:finalize_update", "deploy:copy_static_assets"
-  
   # desc "Make sure local git is in sync with remote."
   # task :check_revision, roles: :web do
   #   unless `git rev-parse HEAD` == `git rev-parse origin/master` do
@@ -61,5 +58,12 @@ end
 namespace :remote_rake do
   task :invoke do
     run "cd #{deploy_to}/current; RAILS_ENV=production bundle exec rake db:migrate"
+  end
+end
+
+namespace :my_tasks do
+  task :copy_to_public do
+    run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
+    run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
   end
 end
