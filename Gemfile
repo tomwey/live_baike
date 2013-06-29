@@ -54,6 +54,8 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  # 加快assets precompile速度
+  gem 'turbo-sprockets-rails3'
 end
 
 gem 'jquery-rails', '2.2.1'
