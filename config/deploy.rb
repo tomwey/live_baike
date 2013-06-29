@@ -18,6 +18,7 @@ ssh_options[:forward_agent] = true
 # 保留5个最新的版本
 after "deploy", "deploy:cleanup"
 after "deploy:cleanup", "deploy:copy_static_assets"
+after "deploy:cleanup", "deploy:remote_rake"
 
 namespace :deploy do
   %w[start stop restart].each do |command|
@@ -44,6 +45,10 @@ namespace :deploy do
   task :copy_static_assets, roles: :app do
     run "cp /home/#{user}/share_icon.png #{deploy_to}/current/public/share_icon.png"
     run "cp -r /home/#{user}/share_link/ #{deploy_to}/current/public"
+  end
+  
+  task :remote_rake, roles: :db do
+    run "cd #{deploy_to}/current; RAILS_ENV=production bundle exec rake db:migrate"
   end
   # desc "Make sure local git is in sync with remote."
   # task :check_revision, roles: :web do
