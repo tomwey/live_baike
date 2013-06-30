@@ -23,7 +23,7 @@ module PublishesHelper
     if type == 0
       publish.created_at
     else
-      (Time.now.to_date + 1).to_s + " 04:00:00 +0800"
+      (publish.created_at.to_date + 1).to_s + " 04:00:00 +0800"
     end
   end
 end
