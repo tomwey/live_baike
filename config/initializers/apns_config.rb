@@ -9,7 +9,7 @@ APNS.pem = "#{Rails.root}/config/#{cert}"
 
 # puts APNS.host + ' -- ' + APNS.pem
 
-APNS.pass = 'tomwey860818'
+APNS.pass = Rails.env.development? ? "tomwey860818" : "keke"
 
 APNS.port = 2195
 
