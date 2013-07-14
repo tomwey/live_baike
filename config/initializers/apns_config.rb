@@ -4,7 +4,7 @@ host = Rails.env.development? ? "sandbox." : ""
 
 APNS.host = "gateway.#{host}push.apple.com"
 
-cert = Rails.env.development? ? "cert.pem" : "production_cert.pem"
+cert = Rails.env.development? ? "cert.pem" : "livebaike_cert.pem"
 APNS.pem = "#{Rails.root}/config/#{cert}"
 
 # puts APNS.host + ' -- ' + APNS.pem
