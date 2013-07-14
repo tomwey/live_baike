@@ -16,6 +16,7 @@ class Article < ActiveRecord::Base
   scope :without_body, except(:body)
   scope :latest, order('access_time DESC')
   scope :approved, where(:status => 2)
+  scope :approving, where(:status => 0)
   
   mount_uploader :image, PhotoUploader
   

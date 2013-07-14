@@ -1,7 +1,7 @@
 # coding: utf-8
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.order('updated_at DESC').includes(:category).paginate :page => params[:page], :per_page => 20
+    @articles = Article.approving.without_body.order('id DESC').includes(:category).paginate :page => params[:page], :per_page => 20
   end
   
   def show
@@ -20,6 +20,16 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def published
+    @articles = Article.published.without_body.order('updated_at DESC').includes(:category).paginate :page => params[:page], :per_page => 20
+    render :index
+  end
+  
+  def approved
+    @articles = Article.approved.without_body.order('updated_at DESC').includes(:category).paginate :page => params[:page], :per_page => 20
+    render :index
   end
   
   def publish

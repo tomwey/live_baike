@@ -2,7 +2,9 @@
   <h2>统计</h2>
   <ul>
     <li><strong>类别：</strong><%= Category.count %></li>
-    <li><strong>文章：</strong><%= Article.count %></li>
+    <li><strong>总文章：</strong><%= Article.count %> 篇 </li>
+    <li><strong>已发布：</strong><%= Article.published.count %> 篇 </li>
+    <li><strong>已审核：</strong><%= Article.approved.count %> 篇 </li>
   </ul>
 </div>
 

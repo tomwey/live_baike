@@ -1,0 +1,7 @@
+<div style="text-align:right;">
+  <ul class="submenu unstyled">
+      <li <%= "class=active" if action_name == "index" %>><%= link_to '默认', articles_path %></li> /
+      <li <%= "class=active" if action_name == "approved" %>><%= link_to '已审核', approved_articles_path %></li> /
+      <li <%= "class=active" if action_name == "published" %>><%= link_to '已发布', published_articles_path %></li>
+  </ul>
+</div>

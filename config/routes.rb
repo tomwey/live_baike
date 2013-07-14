@@ -31,6 +31,11 @@ LiveBaike::Application.routes.draw do
   end
   
   resources :categories
+  
+  # match "categories/category:id/articles/published" => "#published", :as => :published_category_articles
+  # match "articles/category:id/approved" => "articles#approved", :as => :approved_category_articles
+  # match "articles/category:id" => "articles#index", :as => :category_articles
+  
   resources :device_infos, only: [:index, :destroy]
   resources :notifications, only: [:index, :new, :create]
   resources :publishes, only: [:index, :new, :create] 
@@ -44,6 +49,8 @@ LiveBaike::Application.routes.draw do
     end
     collection do
       get :publish
+      get :published
+      get :approved
     end
   end
   

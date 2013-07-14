@@ -24,3 +24,24 @@ h2 {
   margin:0;
   padding:0;
 }
+
+.submenu {
+  text-align:right;
+  height: 40px;
+  line-height: 40px;
+  margin-right: 12px;
+  ul { margin:0; padding:0;}
+  li {
+    display:inline;
+    margin: 0 5px;
+    
+  }
+  li.active {
+    a {
+      color: #333;
+      border-bottom: 1px dotted #ddd;
+      &:hover { text-decoration: none; }
+    }
+  }
+
+}

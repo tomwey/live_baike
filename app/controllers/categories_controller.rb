@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
-    @articles = @category.articles.order('updated_at DESC').paginate :page => params[:page], :per_page => 30
+    @articles = @category.articles.approving.without_body.order('id DESC').paginate :page => params[:page], :per_page => 20
   end
   
   def new
