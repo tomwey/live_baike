@@ -1,17 +1,17 @@
-require 'apns'
+# require 'apns'
 
-host = Rails.env.development? ? "sandbox." : ""
-
-APNS.host = "gateway.#{host}push.apple.com"
-
-cert = Rails.env.development? ? "cert.pem" : "livebaike_cert.pem"
-APNS.pem = "#{Rails.root}/config/#{cert}"
-
-# puts APNS.host + ' -- ' + APNS.pem
-
-APNS.pass = Rails.env.development? ? "tomwey860818" : 'KeKe2013'
-
-APNS.port = 2195
+# host = Rails.env.development? ? "sandbox." : ""
+# 
+# APNS.host = "gateway.#{host}push.apple.com"
+# 
+# cert = Rails.env.development? ? "cert.pem" : "livebaike_cert.pem"
+# APNS.pem = "#{Rails.root}/config/#{cert}"
+# 
+# # puts APNS.host + ' -- ' + APNS.pem
+# 
+# APNS.pass = Rails.env.development? ? "tomwey860818" : 'KeKe2013'
+# 
+# APNS.port = 2195
 
 # 
 # # (default: feedback.sandbox.push.apple.com)
