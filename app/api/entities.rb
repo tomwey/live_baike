@@ -26,5 +26,9 @@ module LiveBaike
       end
     end
     
+    class DeviceInfo < Grape::Entity
+      expose :device_token, :created_at
+    end
+    
   end
 end

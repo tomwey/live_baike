@@ -97,6 +97,18 @@ module LiveBaike
     end
     
     resource :device_infos do
+      
+      get do
+        authenticate!
+        @device_infos = DeviceInfo.all
+        if @device_infos.any?
+          present @device_infos, :with => APIEntities::DeviceInfo
+          render_json(body())
+        else
+          render_404_json
+        end
+      end
+      
       params do
         requires :device_token, type: String, desc: "Your device token"
       end
@@ -109,18 +121,6 @@ module LiveBaike
         end
       end
     end
-    
-    # get '/article_body' do
-    #   authenticate!
-    #   aid = params[:aid].to_i
-    #   @article = Article.select('body').where(:id => aid)
-    #   if @article.present?
-    #     present @article, :with => APIEntities::ArticleDetail
-    #     render_json(body())
-    #   else
-    #     render_404_json
-    #   end
-    # end
     
   end
 end

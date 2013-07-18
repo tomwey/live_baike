@@ -1,14 +1,4 @@
 LiveBaike::Application.routes.draw do
-  get "publishes/index"
-
-  get "publishes/new"
-
-  get "publishes/create"
-
-  get "device_infos/index"
-
-  get "device_infos_controller/index"
-
   require 'api'
   
   devise_for :users
